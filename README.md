@@ -113,33 +113,29 @@ Different parameter combinations can change how quickly the optimizer converges.
 
 The swimmer starts at
 
-\[
-(x_0,y_0)=\left(-\frac{D}{2},0\right)
-\]
+$(x_0,y_0)=\left(-\frac{D}{2},0\right)$
 
 and aims for the target
 
-\[
-(x_t,y_t)=\left(\frac{D}{2},y_t\right).
-\]
+$(x_t,y_t)=\left(\frac{D}{2},y_t\right).$
 
 At each time step, the total velocity is the vector sum of the swimmer's constant-magnitude relative velocity and the local river-flow velocity:
 
-\[
+$
 \mathbf{u}_{\mathrm{total}}=\begin{bmatrix}u_m\cos\theta_k+f_x(x_k,y_k)\\u_m\sin\theta_k+f_y(x_k,y_k)\end{bmatrix}.
-\]
+$
 
 The path is advanced with an explicit finite-difference (forward Euler) update:
 
-\[
+$
 \mathbf{r}_{k+1}=\mathbf{r}_k+\Delta t\,\mathbf{u}_{\mathrm{total},k}.
-\]
+$
 
 The control variable is the sequence of heading angles \(\boldsymbol{\theta}=[\theta_0,\ldots,\theta_{N-1}]\). The optimizer minimizes the squared endpoint error
 
-\[
+$
 J(\boldsymbol{\theta})=(x_N-x_t)^2+(y_N-y_t)^2.
-\]
+$
 
 Each gradient component is estimated with a central finite difference, and the angle sequence is updated by gradient descent. NumPy batches the perturbed simulations to make this computation faster while preserving the central-difference calculation.
 
