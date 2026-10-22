@@ -121,9 +121,7 @@ $(x_t,y_t)=\left(\frac{D}{2},y_t\right).$
 
 At each time step, the total velocity is the vector sum of the swimmer's constant-magnitude relative velocity and the local river-flow velocity:
 
-\[
-\mathbf{u}_{\mathrm{total}}=\begin{bmatrix}u_m\cos\theta_k+f_x(x_k,y_k)\\u_m\sin\theta_k+f_y(x_k,y_k)\end{bmatrix}.
-\]
+$\mathbf{u}_{\mathrm{total}}=\begin{bmatrix}u_m\cos\theta_k+f_x(x_k,y_k)\\u_m\sin\theta_k+f_y(x_k,y_k)\end{bmatrix}.$
 
 The path is advanced with an explicit finite-difference (forward Euler) update:
 
