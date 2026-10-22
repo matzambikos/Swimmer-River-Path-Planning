@@ -129,7 +129,7 @@ $$
 \mathbf{r}_{k+1}=\mathbf{r}_k+\Delta t\,\mathbf{u}_{\mathrm{total},k}.
 $$
 
-The control variable is the sequence of heading angles \(\boldsymbol{\theta}=[\theta_0,\ldots,\theta_{N-1}]\). The optimizer minimizes the squared endpoint error
+The control variable is the sequence of heading angles $boldsymbol{\theta}=[\theta_0,\ldots,\theta_{N-1}]$. The optimizer minimizes the squared endpoint error
 
 $$
 J(\boldsymbol{\theta})=(x_N-x_t)^2+(y_N-y_t)^2.
