@@ -107,7 +107,7 @@ Useful options include:
 | `--save-dir` | not set | Directory for the PNG plots |
 | `--no-show` | off | Save requested plots and do not open figure windows |
 
-Different parameter combinations can change how quickly the optimizer converges. Gradient descent is sensitive to initialization and learning rate, and the script reports when the requested tolerance is not reached within the maximum iterations.
+Different parameter combinations can change how quickly the optimizer converges. Gradient descent is sensitive to initialization and learning rate andthe script reports when the requested tolerance is not reached within the maximum iterations.
 
 ## Model and numerical method
 
@@ -135,20 +135,9 @@ $$
 J(\boldsymbol{\theta})=(x_N-x_t)^2+(y_N-y_t)^2.
 $$
 
-Each gradient component is estimated with a central finite difference, and the angle sequence is updated by gradient descent. NumPy batches the perturbed simulations to make this computation faster while preserving the central-difference calculation.
+Each gradient component is estimated with a central finite difference andthe angle sequence is updated by gradient descent. NumPy batches the perturbed simulations to make this computation faster while preserving the central-difference calculation.
 
-The demo's flow field consists of a source/sink pair superimposed on a uniform downstream current, following the flow expression in Section 2.3 of the report. A small denominator floor avoids division by zero if a simulated point lands exactly on a source or sink; the idealized point-flow model is singular at those points.
-
-## A note about the supplied script and report
-
-The original uploaded program is preserved without edits at [`original/Path_Planning_Nonuniform.py`](original/Path_Planning_Nonuniform.py). The runnable `demo.py` is a documented adaptation of the **non-uniform-flow case only**.
-
-Two inconsistencies in the supplied material are worth noting:
-
-1. The uploaded script sets `ytarget = 0`, while Table 3 of the report lists `yt = 5 m` for its non-uniform-flow examples. The demo defaults to `0 m` to match the uploaded script and its reproducible default run. The target can be changed with `--target-y`.
-2. In the uploaded script, `R1` and `R2` are assigned squared distances and then squared again in the flow denominator. Section 2.3 of the report defines `R1` and `R2` as distances and uses their squares in the denominator. The demo follows the report's stated equation by using squared distances directly in the denominator. The original script is retained for transparency rather than being overwritten.
-
-These choices are documented so the original code, report and runnable demo can be compared deliberately.
+The demo's flow field consists of a source/sink pair superimposed on a uniform downstream current, following the flow expression in Section 2.3 of the report. A small denominator floor avoids division by zero if a simulated point lands exactly on a source or sink. 
 
 ## Repository layout
 
@@ -161,6 +150,7 @@ river-crossing-trajectory-optimization/
 │   └── Nonuniform_Flow_Methodology.ipynb
 ├── original/
 │   └── Path_Planning_Nonuniform.py
+│   └── flow_visualization.py
 ├── docs/
 │   ├── Simple_Path_Planning_Report.pdf
 │   ├── convergence.png
@@ -169,26 +159,7 @@ river-crossing-trajectory-optimization/
 └── cases/
     ├── uniform_flow_constant_speed/
     │   └── README.md
+    │   └── CaseI_Uniform_Downstream.py
     └── uniform_flow_exponential_fatigue/
         └── README.md
 ```
-
-The two case folders contain documentation placeholders only—no new Python code has been written for those scenarios. Add your existing scripts to those folders when you assemble the complete repository.
-
-## Suggested GitHub setup
-
-1. On GitHub, create a new empty repository named `river-crossing-trajectory-optimization` (do not initialize it with another README, since this folder already includes one).
-2. From this project folder, run:
-
-   ```bash
-   git init
-   git add .
-   git commit -m "Add river-crossing path-planning project"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/river-crossing-trajectory-optimization.git
-   git push -u origin main
-   ```
-
-   Replace `YOUR_USERNAME` with your GitHub username. When you add the two existing uniform-flow scripts, commit them in their corresponding `cases/` folders.
-
-No open-source license has been selected in this scaffold. Choose and add a license before presenting the repository as reusable open-source software.
