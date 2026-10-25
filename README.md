@@ -120,7 +120,6 @@ The demo's flow field consists of a source/sink pair superimposed on a uniform d
 river-crossing-trajectory-optimization/
 ├── README.md
 ├── requirements.txt
-├── demo.py
 ├── notebooks/
 │   └── Nonuniform_Flow_Methodology.ipynb
 ├── original/
