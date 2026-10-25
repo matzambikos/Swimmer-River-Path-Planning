@@ -14,8 +14,6 @@ A demo is included through a Jupyter notebook [`notebooks/Nonuniform_Flow_Method
 
 The third plot, which compares the swimmer's selected heading with the resulting ground-velocity direction, is saved as `heading-vs-ground-velocity.png`.
 
-## Jupyter walkthrough
-
 The notebook [`notebooks/Nonuniform_Flow_Methodology.ipynb`](notebooks/Nonuniform_Flow_Methodology.ipynb) provides an executable, step-by-step explanation of Case 3. It covers the vector flow field, the swimmer's combined ground velocity, forward-Euler time stepping, the endpoint-error objective, central finite differences scheme, gradient descent and the resulting plots. The notebook is self-contained and can be run from top to bottom.
 
 To open it locally, install Jupyter if needed and launch Notebook or JupyterLab:
@@ -31,7 +29,7 @@ jupyter notebook notebooks/Nonuniform_Flow_Methodology.ipynb
 |---|---|---|
 | 1 | Uniform downstream current; constant swimmer speed and a constant heading angle | Placeholder only; add the corresponding existing implementation |
 | 2 | Uniform downstream current; swimmer speed decreases exponentially to model fatigue | Placeholder only; add the corresponding existing implementation |
-| 3 | Spatially varying river current; constant swimmer speed and time-varying heading | Runnable demo included as `demo.py` |
+| 3 | Spatially varying river current; constant swimmer speed and time-varying heading | Runnable demo included as 'notebooks/Nonuniform_Flow_Methodology.ipynb' |
 
 The full report is included at [`docs/Simple_Path_Planning_Report.pdf`](docs/Simple_Path_Planning_Report.pdf).
 
@@ -65,31 +63,8 @@ python -m pip install -r requirements.txt
 python -m pip install -r requirements.txt
 ```
 
-### 3. Run the demo
 
-```bash
-python demo.py
-```
-
-This runs the optimizer and opens 3 matplotlib figures: the convergence history, the optimized path over the flow field and the swimmer-heading versus ground-velocity directions.
-
-To save the figures and run without opening windows (useful on a remote machine or in a notebook environment):
-
-```bash
-python demo.py --save-dir outputs --no-show
-```
-
-The script prints the final position, target, endpoint error, iteration count and whether the requested tolerance was reached. A non-zero exit status indicates that the maximum iteration count was reached before satisfying the tolerance (so the target was not reached in time).
-
-## Try different parameters
-
-`demo.py --help` lists all options. For example:
-
-```bash
-python demo.py --learning-rate 0.005 --max-iterations 400 --save-dir outputs
-```
-
-Useful options include:
+ ** Code Parameter Explanation **
 
 | Option | Default | Meaning |
 |---|---:|---|
