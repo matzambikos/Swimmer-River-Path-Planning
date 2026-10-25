@@ -6,13 +6,13 @@ The research is organized around 3 cases: uniform river speed with constant swim
 
 ## Demo preview
 
-A demo is included, particularly for case 3. The approach optimizes a sequence of swimming angles for a spatially varying flow field. In the default run, the endpoint is brought within approximately **0.1 m** of the target.
+A demo is included through a Jupyter notebook [`notebooks/Nonuniform_Flow_Methodology.ipynb`](notebooks/Nonuniform_Flow_Methodology.ipynb), particularly for case 3. The approach optimizes a sequence of swimming angles for a spatially varying flow field. In the default run, the endpoint is brought within approximately **0.1 m** of the target.
 
 ![Optimized swimmer path in non-uniform flow](docs/nonuniform-flow-path.png)
 
 ![Gradient-descent convergence](docs/convergence.png)
 
-The third plot, which compares the swimmer's selected heading with the resulting ground-velocity direction, is saved as `heading-vs-ground-velocity.png` when the demo is run with `--save-dir`.
+The third plot, which compares the swimmer's selected heading with the resulting ground-velocity direction, is saved as `heading-vs-ground-velocity.png`.
 
 ## Jupyter walkthrough
 
